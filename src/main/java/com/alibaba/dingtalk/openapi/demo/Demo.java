@@ -6,6 +6,7 @@ import com.alibaba.dingtalk.openapi.demo.media.MediaHelper;
 import com.alibaba.dingtalk.openapi.demo.message.LightAppMessageDelivery;
 import com.alibaba.dingtalk.openapi.demo.message.MessageHelper;
 import com.alibaba.dingtalk.openapi.demo.user.UserHelper;
+import com.alibaba.dingtalk.openapi.demo.utils.ConvertUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.api.model.corp.*;
@@ -86,16 +87,17 @@ public class Demo {
             log("成功签名: ", signature);
 
             // 创建部门
-            String name = "TestDept.34";
+            String name = "TestDept.35";
             String parentId = "1";
             String order = "1";
             boolean createDeptGroup = true;
             long departmentId = Long.parseLong(DepartmentHelper.createDepartment(accessToken, name, parentId, order, createDeptGroup));
             log("成功创建部门", name, " 部门id=", departmentId);
 
+
             // 获取部门列表
             List<Department> list = DepartmentHelper.listDepartments(accessToken, parentId);
-            log("成功获取部门列表", list);
+            log("成功获取部门列表", ConvertUtil.convertBeans2List(list));
 
             // 更新部门
             name = "hahahaha";
