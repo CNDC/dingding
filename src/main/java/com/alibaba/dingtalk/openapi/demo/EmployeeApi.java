@@ -61,15 +61,16 @@ public class EmployeeApi {
         String jobnumber;//工号
         Map<String, String> extattr;*/
         CorpUserDetail userDetail = new CorpUserDetail();
-        userDetail.setMobile("13193799273");
+        userDetail.setMobile("13193799274");
         userDetail.setEmail("13193799272@139.com");
         userDetail.setIsBoss(false);
         userDetail.setIsHide(false);
         userDetail.setIsBoss(false);
-        userDetail.setActive(true);
+        userDetail.setActive(false);
         userDetail.setName("袁晓阳");
         List<Long> department = new ArrayList<>();
         department.add(65443232L);
+        department.add(65452183L);
         userDetail.setDepartment(department);//设置员工的部门信息
         String user_id = UserHelper.createUser(accessToken, userDetail);//员工唯一user_id
         log("员工唯一user_id", user_id);
